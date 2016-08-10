@@ -5,6 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimum-scale=1,maximum-scale=1,minimal-ui">
     <title>Document</title>
+    <style>
+    .sr_inp_bg{
+      position:relative;
+      overflow: hidden;
+    }
+    .searchBtn{
+      position:absolute;
+      background-image:url('data:image/png;base64,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');
+      background-repeat: no-repeat;
+      width: 40px;
+      height: 30px;
+      right: 0;
+      top: 0;
+      background-size: 18px 18px;
+      background-position: center center;
+      background-color: #d0d0d0;
+    }
+    </style>
 </head>
 
 <body>
@@ -19,18 +37,14 @@
         <div class="sr_main">
             <div class="header_wrapper">
                 <div class="sr_head clearfix">
-                    <div class="sr_head_sub">
-                        <div class="all_cate">
-                            <i class="sr_ico sr_ico1"></i><span class="cate_tit">全部分类</span>
-                        </div>
-                    </div>
                     <a class="arrow-left backpage"></a>
                     <div class="search_box">
-                        <form id="sr_fm">
+                        <div id="sr_fm">
                             <div class="sr_inp_bg">
                                 <input class="sr_inp" type="search">
+                                <span class="searchBtn"></span>
                             </div>
-                        </form>
+                        </div>
                     </div>
                     <div class="classify hide">
                         <ul class="clearfix">
@@ -39,248 +53,12 @@
                 </div>
 
                 <ul class="sr_sort clearfix">
-                    <li class="sort2" type="sales" direct="desc">按销量排序<i class="sr_ico dir"></i></li>
-                    <li class="sort3" type="price" direct="desc">按价格排序<i class="sr_ico dir"></i></li>
+                    <li class="sort2" type="sales" direct="desc">按阅读量排序<i class="sr_ico dir"></i></li>
                 </ul>
             </div>
 
             <div class="sr_list" style="min-height: 635px;">
-                <ul class="pre-list pre-list-2" id="productList">
-                    <li>
-                        <div class="pre-item" pid="4589">
-                            <a href="/product.html?product_id=4589&amp;source=fcategory_1"> <img class="pre-img" src="http://prod.image.yit.com/5/7/57a5e9fe29fcc.jpg-h5square1" alt=""> </a>
-                            <div class="pre-info">
-                                <a href="/product.html?product_id=4589">
-                                    <p class="pre-name">48小时特惠 护生画集 丰子恺作品 读库</p>
-                                </a>
-                                <p class="pre-subtitle">被称为“佛教艺术的佳构”，共七册</p>
-                                <p class="pre-price"> <span>¥360</span>
-                                    <!--stock==0禁用--><i class="pre-addcar " product_id="4589"></i> </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pre-item" pid="3425">
-                            <a href="/product.html?product_id=3425&amp;source=fcategory_1"> <img class="pre-img" src="http://prod.image.yit.com/5/7/579ac87494830.jpg-h5square1" alt=""> </a>
-                            <div class="pre-info">
-                                <a href="/product.html?product_id=3425">
-                                    <p class="pre-name">3岁以下儿童绘本夏季套装 读小库</p>
-                                </a>
-                                <p class="pre-subtitle">给3岁以下孩子的最好绘本，套装内含7种书</p>
-                                <p class="pre-price"> <span>¥336</span>
-                                    <!--stock==0禁用--><i class="pre-addcar " product_id="3425"></i> </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pre-item" pid="3440">
-                            <a href="/product.html?product_id=3440&amp;source=fcategory_1"> <img class="pre-img" src="http://prod.image.yit.com/5/7/578bee4315886.jpg-h5square1" alt=""> </a>
-                            <div class="pre-info">
-                                <a href="/product.html?product_id=3440">
-                                    <p class="pre-name">多媒体音乐启蒙书 乐器总动员 读小库</p>
-                                </a>
-                                <p class="pre-subtitle">AR效果，随身携带小乐队，50种乐器可独奏合奏</p>
-                                <p class="pre-price"> <span>¥198</span>
-                                    <!--stock==0禁用--><i class="pre-addcar " product_id="3440"></i> </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pre-item" pid="1533">
-                            <a href="/product.html?product_id=1533&amp;source=fcategory_1"> <img class="pre-img" src="http://prod.image.yit.com/5/7/5766ca2fb6e57.jpg-h5square1" alt=""> </a>
-                            <div class="pre-info">
-                                <a href="/product.html?product_id=1533">
-                                    <p class="pre-name">修复民国老课本 读库</p>
-                                </a>
-                                <p class="pre-subtitle">民国影响最大的老课本《共和国教科书》 整套共17册</p>
-                                <p class="pre-price"> <span>¥490</span>
-                                    <!--stock==0禁用--><i class="pre-addcar " product_id="1533"></i> </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pre-item" pid="529">
-                            <a href="/product.html?product_id=529&amp;source=fcategory_1"> <img class="pre-img" src="http://prod.image.yit.com/5/7/5796c9dcb5fcc.jpg-h5square1" alt=""> </a>
-                            <div class="pre-info">
-                                <a href="/product.html?product_id=529">
-                                    <p class="pre-name">大自然 绘本套装 读库 </p>
-                                </a>
-                                <p class="pre-subtitle">给孩子的最美读物 一套书认识大自然 ，法国名社出版</p>
-                                <p class="pre-price"> <span>¥198</span>
-                                    <!--stock==0禁用--><i class="pre-addcar " product_id="529"></i> </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pre-item" pid="3426">
-                            <a href="/product.html?product_id=3426&amp;source=fcategory_1"> <img class="pre-img" src="http://prod.image.yit.com/5/7/57989390277e4.jpg-h5square1" alt=""> </a>
-                            <div class="pre-info">
-                                <a href="/product.html?product_id=3426">
-                                    <p class="pre-name">3岁以上儿童绘本夏季套装 读小库</p>
-                                </a>
-                                <p class="pre-subtitle">给3到6岁孩子的最好绘本，套装内含12种书</p>
-                                <p class="pre-price"> <span>¥594</span>
-                                    <!--stock==0禁用--><i class="pre-addcar " product_id="3426"></i> </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pre-item" pid="3429">
-                            <a href="/product.html?product_id=3429&amp;source=fcategory_1"> <img class="pre-img" src="http://prod.image.yit.com/5/7/5798936fe8777.jpg-h5square1" alt=""> </a>
-                            <div class="pre-info">
-                                <a href="/product.html?product_id=3429">
-                                    <p class="pre-name">6岁以上儿童绘本夏季套装 读小库</p>
-                                </a>
-                                <p class="pre-subtitle">给6到9岁孩子的最好绘本，套装内含7种书</p>
-                                <p class="pre-price"> <span>¥578</span>
-                                    <!--stock==0禁用--><i class="pre-addcar " product_id="3429"></i> </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pre-item" pid="3433">
-                            <a href="/product.html?product_id=3433&amp;source=fcategory_1"> <img class="pre-img" src="http://prod.image.yit.com/5/7/5798931018896.jpg-h5square1" alt=""> </a>
-                            <div class="pre-info">
-                                <a href="/product.html?product_id=3433">
-                                    <p class="pre-name">12岁以上儿童绘本夏季套装 读小库</p>
-                                </a>
-                                <p class="pre-subtitle">给12岁以上少年的最好读物，套装内含12种书</p>
-                                <p class="pre-price"> <span>¥650</span>
-                                    <!--stock==0禁用--><i class="pre-addcar " product_id="3433"></i> </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pre-item" pid="918">
-                            <a href="/product.html?product_id=918&amp;source=fcategory_1"> <img class="pre-img" src="http://prod.image.yit.com/5/7/574d15ad46d7e.jpg-h5square1" alt=""> </a>
-                            <div class="pre-info">
-                                <a href="/product.html?product_id=918">
-                                    <p class="pre-name">0-6岁儿童绘本春季套装 读小库</p>
-                                </a>
-                                <p class="pre-subtitle">给6岁以下孩子的最美绘本 ，套装内含10种绘本</p>
-                                <p class="pre-price"> <span>¥594</span>
-                                    <!--stock==0禁用--><i class="pre-addcar " product_id="918"></i> </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pre-item" pid="3431">
-                            <a href="/product.html?product_id=3431&amp;source=fcategory_1"> <img class="pre-img" src="http://prod.image.yit.com/5/7/5798934eeae5f.jpg-h5square1" alt=""> </a>
-                            <div class="pre-info">
-                                <a href="/product.html?product_id=3431">
-                                    <p class="pre-name">9岁以上儿童绘本夏季套装 读小库</p>
-                                </a>
-                                <p class="pre-subtitle">给9到12岁孩子的最好绘本，套装内含10种书</p>
-                                <p class="pre-price"> <span>¥668</span>
-                                    <!--stock==0禁用--><i class="pre-addcar " product_id="3431"></i> </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pre-item" pid="924">
-                            <a href="/product.html?product_id=924&amp;source=fcategory_1"> <img class="pre-img" src="http://prod.image.yit.com/5/7/574d2821045a3.jpg-h5square1" alt=""> </a>
-                            <div class="pre-info">
-                                <a href="/product.html?product_id=924">
-                                    <p class="pre-name">收藏级绘本《蝴蝶夫人》</p>
-                                </a>
-                                <p class="pre-subtitle">当红插画师演绎歌剧经典， 风靡各国 展开超10米长卷</p>
-                                <p class="pre-price"> <span>¥198</span>
-                                    <!--stock==0禁用--><i class="pre-addcar " product_id="924"></i> </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pre-item" pid="527">
-                            <a href="/product.html?product_id=527&amp;source=fcategory_1"> <img class="pre-img" src="http://prod.image.yit.com/5/7/574d1c29ee21f.jpg-h5square1" alt=""> </a>
-                            <div class="pre-info">
-                                <a href="/product.html?product_id=527">
-                                    <p class="pre-name">《又自在又美丽》磨铁</p>
-                                </a>
-                                <p class="pre-subtitle">76幅手绘植物插画 ，书+限量笔记本+植物卡纸2张+植物书签4枚</p>
-                                <p class="pre-price"> <span>¥98</span>
-                                    <!--stock==0禁用--><i class="pre-addcar " product_id="527"></i> </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pre-item" pid="919">
-                            <a href="/product.html?product_id=919&amp;source=fcategory_1"> <img class="pre-img" src="http://prod.image.yit.com/5/7/574d0e4979189.jpg-h5square1" alt=""> </a>
-                            <div class="pre-info">
-                                <a href="/product.html?product_id=919">
-                                    <p class="pre-name">6岁以上儿童绘本春季套装 读小库</p>
-                                </a>
-                                <p class="pre-subtitle">给6到9岁孩子的最美绘本，套装内含12种绘本</p>
-                                <p class="pre-price"> <span>¥678</span>
-                                    <!--stock==0禁用--><i class="pre-addcar " product_id="919"></i> </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pre-item" pid="922">
-                            <a href="/product.html?product_id=922&amp;source=fcategory_1"> <img class="pre-img" src="http://prod.image.yit.com/5/7/574d269e512dc.jpg-h5square1" alt=""> </a>
-                            <div class="pre-info">
-                                <a href="/product.html?product_id=922">
-                                    <p class="pre-name">笔记本《吻》+图册《读》</p>
-                                </a>
-                                <p class="pre-subtitle">玛格南图片社经典作品 ，40幅吻照 ，百余幅经典阅读主题图片</p>
-                                <p class="pre-price"> <span>¥103</span>
-                                    <!--stock==0禁用--><i class="pre-addcar " product_id="922"></i> </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pre-item" pid="925">
-                            <a href="/product.html?product_id=925&amp;source=fcategory_1"> <img class="pre-img" src="http://prod.image.yit.com/5/7/574d28efbb51f.jpg-h5square1" alt=""> </a>
-                            <div class="pre-info">
-                                <a href="/product.html?product_id=925">
-                                    <p class="pre-name">最经典的希腊神话书</p>
-                                </a>
-                                <p class="pre-subtitle"> 精装布封版《多莱尔的希腊神话书》 风行半世纪 千万销量</p>
-                                <p class="pre-price"> <span>¥88</span>
-                                    <!--stock==0禁用--><i class="pre-addcar " product_id="925"></i> </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pre-item" pid="1646">
-                            <a href="/product.html?product_id=1646&amp;source=fcategory_1"> <img class="pre-img" src="http://prod.image.yit.com/5/7/576ecfa7c8ebe.jpg-h5square1" alt=""> </a>
-                            <div class="pre-info">
-                                <a href="/product.html?product_id=1646">
-                                    <p class="pre-name">艺术史经典《中国纹样》</p>
-                                </a>
-                                <p class="pre-subtitle">百年前的百幅最美中国纹样 附赠涂色本</p>
-                                <p class="pre-price"> <span>¥99</span>
-                                    <!--stock==0禁用--><i class="pre-addcar " product_id="1646"></i> </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pre-item" pid="2711">
-                            <a href="/product.html?product_id=2711&amp;source=fcategory_1"> <img class="pre-img" src="http://prod.image.yit.com/5/7/5782197ab6342.jpg-h5square1" alt=""> </a>
-                            <div class="pre-info">
-                                <a href="/product.html?product_id=2711">
-                                    <p class="pre-name">“好孕”笔记礼盒套装</p>
-                                </a>
-                                <p class="pre-subtitle">父母给宝贝的人生第一件礼物 给准爸妈、新婚朋友送礼的最佳选择</p>
-                                <p class="pre-price"> <span>¥218</span>
-                                    <!--stock==0禁用--><i class="pre-addcar " product_id="2711"></i> </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pre-item" pid="3247">
-                            <a href="/product.html?product_id=3247&amp;source=fcategory_1"> <img class="pre-img" src="http://prod.image.yit.com/5/7/5787260cc4ed4.jpg-h5square1" alt=""> </a>
-                            <div class="pre-info">
-                                <a href="/product.html?product_id=3247">
-                                    <p class="pre-name">蔡志忠禅画活页 读库</p>
-                                </a>
-                                <p class="pre-subtitle">宣纸彩印，三折布面函装，适合收藏</p>
-                                <p class="pre-price"> <span>¥320</span>
-                                    <!--stock==0禁用--><i class="pre-addcar " product_id="3247"></i> </p>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                <ul class="pre-list pre-list-2" id="productList"></ul>
                 <div class="loading_bot" id="loading_bot" style="display: block;"><span>点击加载下一页</span><em>没有更多</em></div>
             </div>
 
@@ -321,33 +99,31 @@
     </li>
     {^/each}
 </script>
-
 <script id="tpl_sr_list" type="text/template">
     <% _.each(list,function(item,index){ %>
+
     <li>
-        <div class="pre-item" pid="$_{it.product_id}">
-            <a href="/product.html?product_id=$_{it.product_id}$_{it.spm}">
-                <img class="pre-img" src="$_{it.image_url}-h5square1" alt="" />
+        <div class="pre-item">
+            <a href="<%= item.link %>">
+                <img class="pre-img" src="<%= item.headImg %>" alt="" />
             </a>
             <div class="pre-info">
-                <a href="/product.html?product_id=$_{it.product_id}">
-                    <p class="pre-name">$_{it.product_name}</p>
-                    <p class="pre-name"><%= item.product_name %></p>
+                <a href="<%= item.link %>">
+                    <p class="pre-name"><%= item.title %></p>
 
                 </a>
-                <p class="pre-subtitle"><%= item.second_title%></p>
+                <p class="pre-subtitle"><%= item.desc%></p>
                 <p class="pre-price">
-                    <span>&yen;<%= item.price %></span>
-                    <!--stock==0禁用-->
-                    <i class="pre-addcar {^if it.stock=='0'} disable {^/if}" product_id="$_{it.product_id}"></i>
+                    <span>阅读量:<%= item.count %></span>
+
                 </p>
             </div>
         </div>
     </li>
     <% }) %>
 </script>
-<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="http://apps.bdimg.com/libs/underscore.js/1.7.0/underscore-min.js"></script>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
 //数据是否加载完成
 var loadingCompleted=false;
@@ -355,21 +131,20 @@ var lock=false;
 //分页请求数据当前起始位置
 var start=0;
 //分次请求数据每次每次请求条数
-var size=20;Ω
-var orderByCount='min';//默认按照升序排列max/min
-var orderByPrice="max";//默认按照低价排序max/min
+var size=20;
 
 //执行数据加载
 var fetchData=function(params,callback){
-  //锁定请求
   if(lock){
     return false;
   }
+
   lock=true;
-  $('.loadingToast').show();
+  $('#loadingToast').show();
   $.ajax({
-    url:'',
-    data:params
+    url:'/api/list',
+    data:params,
+    dataType:'JSON'
   })
   //返回数据格式
   /**
@@ -381,73 +156,100 @@ var fetchData=function(params,callback){
     completed:Boolean//标志当前数据是否请求完成
   }
   **/
-  .success(function(data){
-    callback(data);
+  .success(function(res){
+    var tpl=$('#tpl_sr_list').html();
+
+    //渲染模板
+    var str=_.template(tpl)({
+      list:res.list
+    });
+
+    if(res.completed){
+      $('#loading_bot').html('<em>没有更多了</em>');
+      $('#loading_bot').hide();
+    }else{
+      $('#loading_bot').html('<span>点击加载下一页</span>');
+      $('#loading_bot').show();
+    }
+
+    callback(str,res.list,res.completed);
   })
   .always(function(){
     //解锁
     lock=false;
-    $('.loadingToast').hide();
+    $('#loadingToast').hide();
   })
 };
+
 $(function(){
+  //初始化的时候掉一遍数据
+  fetchData({
+    start:start,
+    size:size
+  },function(str,list,completed){
+    $(str).appendTo('#productList');
+    //如果当前数据请求完成
+    start+=list.length;
+
+  })
+
   $('#loading_bot').on('click',function(){
-    if(loadingCompleted){
-      return false;
-    }
     fetchData({
       start:start,
       size:size
-    },function(res){
-      var tpl=$('#tpl_sr_list').html();
-      //渲染模板
-      var str=_.template(tpl,{
-        list:res.list
-      });
+    },function(str,list,completed){
       $(str).appendTo('#productList');
-
       //如果当前数据请求完成
-      start+=res.list.length;
-      //表示当前数据请求完 没有更多数据
-      completed=res.completed;
+      start+=list.length;
+
     })
   });
 
-  //销量排序 价格排序 搜索排序
-  $('.sort2,.sort3').on('click',function(){
-    //如果点击的是销量排序
-    if($(this).attr('class').indexOf('sort2')!=-1){
-      orderByCount=orderByCount=='max'?'min':'max';
-      fetchData({
-        orderByCount:orderByCount
-      },function(res){
-        
-      })
+  //点击按照阅读量排序
+  $('.sort2').on('click',function(){
+    var self=this;
+    fetchData({
+      order:'PV',
+      start:0,
+      size:size
+    },function(str,list,completed){
+      $('#productList').empty();
+      $(str).appendTo('#productList');
+
+      //如果当前数据请求完成
+      start=list.length;
+      $(self).addClass('cur')
+    })
+  })
+  var searchAction=function(search){
+    fetchData({
+      search:search,
+      start:0,
+      size:size
+    },function(str,list,completed){
+      $('#productList').empty();
+      $(str).appendTo('#productList');
+
+      //如果当前数据请求完成
+      start=list.length;
+      $('[class$="sort"]').removeClass('cur')
+    })
+  };
+
+  $('.sr_inp').on('keydown',function(e){
+    var val=$(this).val().trim();
+    if(e.keyCode==13 && val.length){
+      searchAction(val);
     }
 
-    //如果点击的是价格排序
-    if($(this).attr('class').indexOf('sort3')!=-1){
-      orderByPrice=orderByCount=='max'?'min':'max';
-      fetchData({
-        orderByPrice:orderByPrice
-      },function(res){
+  })
 
-      })
+  $('.searchBtn').on('click',function(e){
+    var val=$('.sr_inp').val().trim();
+    if(val && val.length){
+      searchAction(val);
     }
 
-    //如果点击的是搜索
-    if($(this).attr('class').indexOf('search')!=-1){
-      var search_text=$(this).val();
-      //重置
-      orderByCount='max';
-      orderByPrice='min';
-      fetchData({
-        s:search_text
-      },function(res){
-
-      })
-
-    }
   })
 })
 </script>
